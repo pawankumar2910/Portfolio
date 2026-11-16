@@ -10,17 +10,16 @@ The world is built on **[Utsuroi](https://github.com/billpwchan/utsuroi)** by Bi
 
 | # | Room | Chapter |
 |---|---|---|
-| 01 | 門 Gate, before dawn | **Every frame is a decision.** Hero: "Watch the latest reel" / "Start a project" |
+| 01 | 門 Gate, before dawn | **Every frame is a decision.** Hero: "See the work" / "Start a project" |
 | 02 | 玄関 Genkan | **About:** portrait, stats, tools |
-| 03 | 渡廊下 Bridge, noon | **Featured:** *Founder Reel* and *Raw → Edited*, playing silently in place |
-| 04 | 囲炉裏 Hearth | **Selected films:** *Orchid*, *The Art of Diesel* |
-| 05 | 縁側 Engawa | **Short form:** AtCozy, Norwood Gulf ×3, Fit Secrets |
-| 06 | 枯山水 Dry garden | **Key art:** a poster wall beside the garden, plus a gallery of all 15 |
-| 07 | 寝室 Bedroom | **Services** |
-| 08 | 夜 Night | **Contact** |
-| 09 | 間取り Plan | The whole house from above; pick a room to jump back to it |
+| 03 | 枯山水 Dry garden | **Work:** a poster wall beside the garden, plus a gallery of all 15 |
+| 04 | 寝室 Bedroom | **Services** |
+| 05 | 夜 Night | **Contact** |
+| 06 | 間取り Plan | The whole house from above; pick a room to jump back to it |
 
-The camera still walks through the other rooms of the house (roji, irigawa, zashiki, tea room, bath) on the way between chapters; it just doesn't stop in them. The chapters to rest in are set by `KEEP` in `src/journey/journey.js`, and they must match `COPY` in `copy.js`.
+**Films are offline for now.** The encoded films (1080p, 720p and poster frames) are kept in `assets/videos/`, outside `public/`, so they are in the repo but not deployed. To bring them back, move that folder to `public/media/video/` and add the film chapters back to `COPY` and `KEEP` (the film player, live thumbnails and `FILMS` data are still in the code).
+
+The camera still passes through the other rooms of the house (roji, irigawa, zashiki, tea room, bridge, hearth, engawa, bath) on the way between chapters; it just doesn't stop in them. The chapters to rest in are set by `KEEP` in `src/journey/journey.js`, and they must match `COPY` in `copy.js`.
 
 The header links (About · Work · Services · Contact) and the day ruler on the right both jump between chapters.
 
@@ -57,7 +56,7 @@ The first visit downloads about 160 MB of 3D assets plus the films. Any static h
 ## Editing the content
 
 - **All text** is in [`src/ui/copy.js`](src/ui/copy.js): chapters, films, posters, services and contact details.
-- **Films:** encode them with `npm run media -- "<path/to/source.mp4>" <name>`, which writes `public/media/video/<name>.mp4` (1080p), `<name>-720.mp4` (for phones and data-saver connections) and `<name>.jpg` (the poster frame). Then add the film to `FILMS` in `copy.js`. A 200 MB master comes out at around 10–15 MB, so every file stays well under GitHub's 100 MB limit. Keep the original masters outside the repo.
+- **Films:** encode them with `npm run media -- "<path/to/source.mp4>" <name>`, which writes `assets/videos/<name>.mp4` (1080p), `<name>-720.mp4` (for phones and data-saver connections) and `<name>.jpg` (the poster frame). Then add the film to `FILMS` in `copy.js`. A 200 MB master comes out at around 10–15 MB, so every file stays well under GitHub's 100 MB limit. Keep the original masters outside the repo.
 - **Posters** go in `public/media/posters/` (with a `thumb/` copy), and the **portrait** is `public/media/pavan.jpg`.
 - **Layout and type** are in [`src/ui/ui.css`](src/ui/ui.css); the chapter cards are built in [`src/ui/ui.js`](src/ui/ui.js) (`showCard` and `extra`).
 - **Camera stops and times of day** are in [`src/journey/journey.js`](src/journey/journey.js).

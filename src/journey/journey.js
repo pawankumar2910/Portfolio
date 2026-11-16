@@ -38,9 +38,9 @@ const ALL = [
   { id: 'above', h: 20.4, pos: V(-3.0, 44.0, 17.0), look: V(-3.0, 0.0, -2.5), fov: 44, route: [] },
 ];
 
-// the portfolio rests in nine of them; the rest are walked through without stopping (their standpoints become
+// the portfolio rests in six of them; the rest are walked through without stopping (their standpoints become
 // points on the route, so the camera still passes every doorway it did before)
-const KEEP = ['gate', 'genkan', 'bridge', 'hearth', 'engawa', 'kare', 'bedroom', 'night', 'above'];
+const KEEP = ['gate', 'genkan', 'kare', 'bedroom', 'night', 'above'];
 export const STOPS = [];
 for (const s of ALL) {
   if (KEEP.includes(s.id)) STOPS.push({ ...s, route: [...s.route] });

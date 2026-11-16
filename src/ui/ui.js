@@ -730,7 +730,7 @@ export class UI {
         return `<div class="extra x-hero">
           <p class="roles" ${d(0)}>${TITLE.roles}</p>
           <div class="acts" ${d(1)}>
-            <button type="button" class="btn solid" data-act="film" data-set="ssv,raw" data-k="0"><span>Watch the latest reel</span>${ARROW}</button>
+            <button type="button" class="btn solid" data-act="go" data-stop="2"><span>See the work</span>${ARROW}</button>
             <a class="btn" href="${SITE.brief}" ${EXT}><span>Start a project</span>${ARROW}</a>
           </div></div>`;
       case 'about':

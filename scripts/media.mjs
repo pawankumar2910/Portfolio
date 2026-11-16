@@ -1,13 +1,14 @@
 // Web encodes for the films: for each source, a 1080p master, a lighter 720p cut for phones and slow networks, and a
 // poster frame, all small enough to live in git (GitHub refuses files over 100 MB; every output here is far below).
 //   node scripts/media.mjs <source.mp4> <name> [<source.mp4> <name> ...]
-// writes public/media/video/<name>.mp4, <name>-720.mp4 and <name>.jpg
+// writes assets/videos/<name>.mp4, <name>-720.mp4 and <name>.jpg (outside public/ while the films are offline;
+// move the folder to public/media/video/ to serve them again)
 import { spawnSync } from 'node:child_process';
 import { statSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import ffmpeg from 'ffmpeg-static';
 
-const OUT = 'public/media/video';
+const OUT = 'assets/videos';
 mkdirSync(OUT, { recursive: true });
 
 function probe(src) {

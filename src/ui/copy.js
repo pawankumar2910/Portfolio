@@ -23,6 +23,8 @@ export const TITLE = {
   gloss: 'Reels, product films and key art for brands and founders.',
 };
 
+// The films are offline for now: their files are kept in assets/videos/ at the repo root, outside public/, so they
+// are not deployed. To bring them back, move that folder to public/media/video/ and add a films chapter again.
 const V = './media/video/';
 // each film: a 1080p master, a 720p cut for phones, previews and slow connections, and a poster frame
 // (scripts/media.mjs)
@@ -72,11 +74,11 @@ export const POSTERS = [
 export const NAV = [
   { en: 'About', jp: '机', stop: 1 },
   { en: 'Work', jp: '作品', stop: 2 },
-  { en: 'Services', jp: '仕事', stop: 6 },
-  { en: 'Contact', jp: '便り', stop: 7 },
+  { en: 'Services', jp: '仕事', stop: 3 },
+  { en: 'Contact', jp: '便り', stop: 4 },
 ];
 // which header section a stop belongs to
-export const SECTION_OF = [-1, 0, 1, 1, 1, 1, 2, 3, 3];
+export const SECTION_OF = [-1, 0, 1, 2, 3, 3];
 
 export const COPY = [
   { id: 'gate', nav: 'Welcome', jp: '映像作家', kana: 'えいぞうさっか', en: 'Every frame is a decision.', label: 'Available for projects — 2026',
@@ -89,23 +91,11 @@ export const COPY = [
     extra: { type: 'about', src: './media/pavan.jpg', caption: 'Pavan · Remote',
       stats: [['04', '', 'Years in post'], ['15', '+', 'Projects delivered'], ['06', '', 'Brands']],
       tools: ['After Effects', 'Premiere Pro', 'DaVinci Resolve', 'Blender', 'Photoshop'] } },
-  { id: 'bridge', nav: 'Featured', jp: '新作', kana: 'しんさく', en: 'Featured work', label: '02 — Featured work',
-    body: 'A founder speaking to camera, cut into reels people watch to the end: a hook in the first second, kinetic captions, animated explainer cards and a clean grade. Alongside it, a raw-versus-edited breakdown of the series.',
-    ja: '語りを、最後まで見られるリールに。',
-    extra: { type: 'films', layout: 'feature', items: ['ssv', 'raw'] } },
-  { id: 'hearth', nav: 'Films', jp: '作品', kana: 'さくひん', en: 'Product & cinematic films', label: '02 — Selected films',
-    body: 'Orchid, a launch film for an AI orchestration platform built on animated UI and typography. The Art of Diesel, a campaign master for Norwood Gulf with glitch type and a filmic grade.',
-    ja: '製品を語る映像と、映画のような広告。',
-    extra: { type: 'films', layout: 'wide', items: ['orchid', 'nw3'] } },
-  { id: 'engawa', nav: 'Short form', jp: '縦型', kana: 'たてがた', en: 'Short form', label: '02 — Social & brand reels',
-    body: 'Vertical and square cuts built for the feed: a retail launch, trend formats and campaign cutdowns, each paced for the first three seconds.',
-    ja: 'フィードのための、縦と正方形の編集。',
-    extra: { type: 'films', layout: 'reels', items: ['atcozy', 'nw2', 'nw1', 'nw4', 'fit'] } },
-  { id: 'kare', nav: 'Key art', jp: '絵', kana: 'え', en: 'Key art & posters', label: '03 — Design',
+  { id: 'kare', nav: 'Work', jp: '絵', kana: 'え', en: 'Key art & posters', label: '02 — Work',
     body: 'Campaign posters and product key art for Cardinelle Collections and AtCozy: composition, typography and retouching, delivered for print and social.',
     ja: 'ポスターとキーアート、十五点。',
     extra: { type: 'posters' } },
-  { id: 'bedroom', nav: 'Services', jp: '仕事', kana: 'しごと', en: 'Services', label: '04 — Services',
+  { id: 'bedroom', nav: 'Services', jp: '仕事', kana: 'しごと', en: 'Services', label: '03 — Services',
     body: 'One workflow for every project: a short discovery call, a first cut, focused revisions, and delivery in every ratio the campaign needs.',
     ja: '目的を共有し、組み、整え、納める。',
     extra: { type: 'services', items: [
@@ -114,7 +104,7 @@ export const COPY = [
       ['03', 'Colour Grading', 'Shot matching, custom LUTs, skin-tone protection, broadcast QC.', '2–5 working days'],
       ['04', '3D Artwork & Poster Design', 'Lit Blender scenes, key art, print-ready posters, logo stings.', '4–12 working days'],
     ] } },
-  { id: 'night', nav: 'Contact', jp: '便り', kana: 'たより', en: 'Let’s work together', label: '05 — Contact',
+  { id: 'night', nav: 'Contact', jp: '便り', kana: 'たより', en: 'Let’s work together', label: '04 — Contact',
     body: 'Send the brief, the footage or just the idea. You will get a straight answer on scope, timeline and cost.',
     ja: 'ご依頼、ご相談はお気軽に。',
     extra: { type: 'contact' } },
@@ -135,12 +125,9 @@ export const SEASONS = [
 export const PLACES = [
   { jp: '門', en: 'Welcome', x: -21.5, z: 17.0, stop: 0 },
   { jp: '玄関', en: 'About', x: -21.4, z: 0.4, stop: 1 },
-  { jp: '渡廊下', en: 'Featured', x: -2.7, z: 1.1, stop: 2 },
-  { jp: '囲炉裏', en: 'Films', x: 2.3, z: -1.8, stop: 3 },
-  { jp: '縁側', en: 'Short form', x: 7.4, z: 1.0, stop: 4 },
-  { jp: '枯山水', en: 'Key art', x: 14.8, z: 4.0, stop: 5 },
-  { jp: '寝室', en: 'Services', x: 10.5, z: -4.6, stop: 6 },
-  { jp: '池', en: 'Contact', x: -1.5, z: 7.8, stop: 7 },
+  { jp: '枯山水', en: 'Work', x: 14.8, z: 4.0, stop: 2 },
+  { jp: '寝室', en: 'Services', x: 10.5, z: -4.6, stop: 3 },
+  { jp: '池', en: 'Contact', x: -1.5, z: 7.8, stop: 4 },
 ];
 
 // whose work the house and garden are built from, as their licences ask: grouped as the colophon sets them
